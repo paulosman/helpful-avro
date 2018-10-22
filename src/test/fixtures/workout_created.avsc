@@ -1,0 +1,85 @@
+{
+  "type" : "record",
+  "name" : "workout_created",
+  "namespace" : "io.uacf.mmf",
+  "doc" : "A time-bounded capture of a user's workout",
+  "fields" : [ {
+    "name" : "id",
+    "type" : "long",
+    "doc" : "MMF workout id",
+    "default" : 0
+  }, {
+    "name" : "user_id",
+    "type" : "long",
+    "doc" : "MMF user id",
+    "default" : 0
+  }, {
+    "name" : "name",
+    "type" : "string",
+    "doc" : "An arbitrary name given to the workout",
+    "default" : ""
+  }, {
+    "name" : "activity_type",
+    "type" : {
+      "type" : "record",
+      "name" : "ActivityType",
+      "doc" : "A type of activity",
+      "fields" : [ {
+        "name" : "id",
+        "type" : "int",
+        "doc" : "MMF activity type id"
+      } ]
+    },
+    "doc" : "Type of activity for this workout"
+  }, {
+    "name" : "start",
+    "type" : "string",
+    "doc" : "* ISO-8601 UTC datetime when this workout started"
+  }, {
+    "name" : "end",
+    "type" : "string",
+    "doc" : "* ISO-8601 UTC datetime when this workout ended"
+  }, {
+    "name" : "created",
+    "type" : "string",
+    "doc" : "* ISO-8601 UTC datetime when this workout was created"
+  }, {
+    "name" : "updated",
+    "type" : "string",
+    "doc" : "* ISO-8601 UTC datetime when this workout was last updated"
+  }, {
+    "name" : "aggregates",
+    "type" : [ "null", {
+      "type" : "array",
+      "items" : {
+        "type" : "record",
+        "name" : "Aggregate",
+        "doc" : "An Aggregate defines aggregation operations of a set of data points",
+        "fields" : [ {
+          "name" : "data_type_id",
+          "type" : "string"
+        }, {
+          "name" : "value",
+          "type" : {
+            "type" : "array",
+            "items" : {
+              "type" : "record",
+              "name" : "AggregateValue",
+              "doc" : "An aggregate value for a data type field",
+              "fields" : [ {
+                "name" : "field",
+                "type" : "string"
+              }, {
+                "name" : "operator",
+                "type" : "string"
+              }, {
+                "name" : "value",
+                "type" : "string"
+              } ]
+            }
+          }
+        } ]
+      }
+    } ]
+  } ]
+}

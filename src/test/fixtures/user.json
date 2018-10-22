@@ -1,0 +1,15 @@
+{
+    "first_name": "Paul",
+    "last_name": "Osman",
+    "username": "paulosman",
+    "employer": {
+        "company_name": "Under Armour",
+        "position": "Staff Software Engineer",
+        "location": {
+            "city": "Austin",
+            "state": "Texas",
+            "country": "US"
+        }
+    },
+    "favorite_color": "blue"
+}

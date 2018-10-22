@@ -1,0 +1,32 @@
+{
+  "namespace": "example.avro",
+  "type": "record",
+  "name": "User",
+    "fields": [
+        {"name": "first_name", "type": "string"},
+        {"name": "last_name", "type": "string"},
+        {"name": "age", "type": ["int", "null"]},
+        {"name": "username", "type": ["string", "null"]},
+        {"name": "employer", "type": {
+            "type": "record",
+            "name": "EmployerRecord",
+            "fields": [
+                {"name": "company_name", "type": "string"},
+                {"name": "position", "type": ["string", "null"]},
+                {"name": "start_date", "type": ["string", "null"]},
+                {"name": "location", "type": {
+                    "type": "record",
+                    "name": "LocationRecord",
+                    "fields": [
+                        {"name": "city", "type": "string"},
+                        {"name": "state", "type": "string"},
+                        {"name": "country", "type": "string"},
+                        {"name": "zip", "type": ["string", "null"]}
+                    ]
+                }}
+            ]}
+        },
+        {"name": "favorite_color", "type": ["string", "int"]}
+    ]
+}
+
